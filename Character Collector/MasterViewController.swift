@@ -30,6 +30,7 @@ class MasterViewController: UICollectionViewController {
   let charactersData = Characters.loadCharacters()
     let columns: CGFloat = 3.0
     let inset: CGFloat = 8.0
+    let spacing: CGFloat = 8.0
       
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -92,13 +93,17 @@ extension MasterViewController {
 
 extension MasterViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = Int(collectionView.frame.width / columns)
+        let width = Int((collectionView.frame.width / columns) - (inset + spacing))
         
         return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
     }
 }
 
