@@ -28,6 +28,7 @@ import UIKit
 class MasterViewController: UICollectionViewController {
   
   let charactersData = Characters.loadCharacters()
+    let columns: CGFloat = 3.0
       
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -88,7 +89,14 @@ extension MasterViewController {
 
 // MARK: UICollectionViewDelegateFlowLayout
 
+extension MasterViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = Int(collectionView.frame.width / columns)
+        
+        return CGSize(width: width, height: width)
+    }
 
+}
 
 
 
