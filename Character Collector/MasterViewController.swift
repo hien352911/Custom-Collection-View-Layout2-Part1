@@ -32,6 +32,7 @@ class MasterViewController: UICollectionViewController {
     let inset: CGFloat = 8.0
     let spacing: CGFloat = 8.0
     let lineSpacing: CGFloat = 8.0
+    var isRandom = false
       
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,6 +53,7 @@ class MasterViewController: UICollectionViewController {
   }
   
     @objc func refreshControlDidFire() {
+        isRandom = true
     collectionView?.reloadData()
     collectionView?.refreshControl?.endRefreshing()
   }
@@ -96,7 +98,14 @@ extension MasterViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = Int((collectionView.frame.width / columns) - (inset + spacing))
         
-        return CGSize(width: width, height: width)
+        var randomSize: Int
+        if isRandom {
+            randomSize = 64 * Int(arc4random_uniform(UInt32(3)) + 1)
+        } else {
+            randomSize = width
+        }
+        
+        return CGSize(width: randomSize, height: randomSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
