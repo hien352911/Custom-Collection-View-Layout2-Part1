@@ -31,6 +31,7 @@ class MasterViewController: UICollectionViewController {
     let columns: CGFloat = 3.0
     let inset: CGFloat = 8.0
     let spacing: CGFloat = 8.0
+    let lineSpacing: CGFloat = 8.0
       
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -104,6 +105,10 @@ extension MasterViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return spacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return lineSpacing
     }
 }
 
