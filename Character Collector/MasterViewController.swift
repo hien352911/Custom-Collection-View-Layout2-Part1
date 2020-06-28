@@ -38,6 +38,10 @@ class MasterViewController: UICollectionViewController {
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(MasterViewController.refreshControlDidFire), for: .valueChanged)
     collectionView?.refreshControl = refreshControl
+    
+    let layout = CharacterFlowLayout()
+    layout.itemSize = CGSize(width: 200, height: 200)
+    collectionView.collectionViewLayout = layout
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
