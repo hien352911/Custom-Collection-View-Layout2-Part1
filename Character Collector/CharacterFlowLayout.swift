@@ -30,6 +30,13 @@ class CharacterFlowLayout: UICollectionViewFlowLayout {
         return attributesCopy
     }
     
+    /*
+     Nếu ko có method này, offset của scroll mỗi khi vuốt sẽ ko được update liên tục, giống như bị cache lại
+     */
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
     func changeLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes) {
         let collectionCenter = collectionView!.frame.size.height / 2
         let offset = collectionView!.contentOffset.y
