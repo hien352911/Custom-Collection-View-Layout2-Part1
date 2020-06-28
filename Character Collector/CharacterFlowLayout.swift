@@ -89,4 +89,21 @@ class CharacterFlowLayout: UICollectionViewFlowLayout {
         
         attributes.zIndex = Int(alpha * 10)
     }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        let layoutAttributes = self.layoutAttributesForElements(in: collectionView!.bounds)
+        
+        let center = collectionView!.bounds.size.height / 2
+        let proposedContentOffsetCenterOrigin = proposedContentOffset.y + center
+        
+        let closest = layoutAttributes!.sorted {
+            abs($0.center.y - proposedContentOffsetCenterOrigin) <
+            abs($1.center.y - proposedContentOffsetCenterOrigin)
+        }.first ?? UICollectionViewLayoutAttributes()
+        
+        let targetContentOffset = CGPoint(x: proposedContentOffset.x,
+                                          y: floor(closest.center.y - center))
+        
+        return targetContentOffset
+    }
 }
