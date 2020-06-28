@@ -60,22 +60,33 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QgD-26-u1s">
-                                                    <rect key="frame" x="0.0" y="200" width="200" height="100"/>
+                                                    <rect key="frame" x="0.0" y="208" width="200" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="wtf-Ox-zN1"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="black" pointSize="12"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BQC-Ek-5lJ">
+                                                    <rect key="frame" x="0.0" y="231" width="200" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="QgD-26-u1s" firstAttribute="leading" secondItem="35P-4x-p6n" secondAttribute="leading" id="3qt-jL-DSR"/>
-                                                <constraint firstItem="QgD-26-u1s" firstAttribute="top" secondItem="Mci-5H-M8J" secondAttribute="bottom" id="6sR-WJ-ybP"/>
+                                                <constraint firstAttribute="trailing" secondItem="QgD-26-u1s" secondAttribute="trailing" id="0Pl-Ok-vjf"/>
                                                 <constraint firstAttribute="height" constant="300" id="6zw-4x-gIv"/>
-                                                <constraint firstAttribute="trailing" secondItem="QgD-26-u1s" secondAttribute="trailing" id="7BN-Zk-17N"/>
                                                 <constraint firstItem="Mci-5H-M8J" firstAttribute="top" secondItem="35P-4x-p6n" secondAttribute="top" id="D7h-kj-fmS"/>
-                                                <constraint firstAttribute="bottom" secondItem="QgD-26-u1s" secondAttribute="bottom" id="Jc6-Ib-mGm"/>
+                                                <constraint firstItem="BQC-Ek-5lJ" firstAttribute="leading" secondItem="35P-4x-p6n" secondAttribute="leading" id="QPy-2g-WED"/>
+                                                <constraint firstItem="BQC-Ek-5lJ" firstAttribute="top" secondItem="QgD-26-u1s" secondAttribute="bottom" constant="8" id="YHy-rB-gxL"/>
                                                 <constraint firstAttribute="width" constant="200" id="gMw-Td-5JK"/>
+                                                <constraint firstAttribute="trailing" secondItem="BQC-Ek-5lJ" secondAttribute="trailing" id="icr-kA-39Z"/>
+                                                <constraint firstItem="QgD-26-u1s" firstAttribute="leading" secondItem="35P-4x-p6n" secondAttribute="leading" id="lRe-0q-vla"/>
                                                 <constraint firstAttribute="trailing" secondItem="Mci-5H-M8J" secondAttribute="trailing" id="nla-vo-TLU"/>
+                                                <constraint firstItem="QgD-26-u1s" firstAttribute="top" secondItem="Mci-5H-M8J" secondAttribute="bottom" constant="8" id="p8v-rF-tXd"/>
                                                 <constraint firstItem="Mci-5H-M8J" firstAttribute="leading" secondItem="35P-4x-p6n" secondAttribute="leading" id="v0J-RV-yAo"/>
                                             </constraints>
                                         </view>
@@ -90,6 +101,7 @@
                                 <size key="customSize" width="200" height="300"/>
                                 <connections>
                                     <outlet property="characterImage" destination="Mci-5H-M8J" id="hNF-zg-jLF"/>
+                                    <outlet property="characterInfo" destination="BQC-Ek-5lJ" id="R00-ur-USs"/>
                                     <outlet property="characterTitle" destination="QgD-26-u1s" id="I9Y-XE-bb5"/>
                                 </connections>
                             </collectionViewCell>
