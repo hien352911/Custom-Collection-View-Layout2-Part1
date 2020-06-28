@@ -11,9 +11,15 @@ import UIKit
 class CharacterFlowLayout: UICollectionViewFlowLayout {
     let standardItemAlpha: CGFloat = 0.5
     let standardItemScale: CGFloat = 0.5
+    var isSetup = false
     
     override func prepare() {
         super.prepare()
+        
+        if !isSetup {
+            setupCollectionView()
+            isSetup = true
+        }
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
@@ -105,5 +111,15 @@ class CharacterFlowLayout: UICollectionViewFlowLayout {
                                           y: floor(closest.center.y - center))
         
         return targetContentOffset
+    }
+    
+    func setupCollectionView() {
+        self.collectionView!.decelerationRate = .fast
+        
+        let collectionSize = collectionView!.bounds.size
+        let yInset = (collectionSize.height - self.itemSize.height) / 2
+        let xInset = (collectionSize.width - self.itemSize.width) / 2
+        
+        self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
     }
 }
