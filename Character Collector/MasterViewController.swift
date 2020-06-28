@@ -43,6 +43,7 @@ class MasterViewController: UICollectionViewController {
     layout.itemSize = CGSize(width: 200, height: 200)
     let standardItemSize = layout.itemSize.width * layout.standardItemScale
     layout.estimatedItemSize = CGSize(width: standardItemSize, height: standardItemSize)
+    layout.minimumLineSpacing = -(layout.itemSize.width * 0.5)
     collectionView.collectionViewLayout = layout
   }
   

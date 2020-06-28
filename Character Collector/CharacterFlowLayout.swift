@@ -86,5 +86,7 @@ class CharacterFlowLayout: UICollectionViewFlowLayout {
          => new originY = centerY - height / 2 = 100 - 100/2 = 50
          */
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        
+        attributes.zIndex = Int(alpha * 10)
     }
 }
