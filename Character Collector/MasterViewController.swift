@@ -40,7 +40,7 @@ class MasterViewController: UICollectionViewController {
     collectionView?.refreshControl = refreshControl
     
     let layout = CharacterFlowLayout()
-    layout.itemSize = CGSize(width: 200, height: 200)
+    layout.itemSize = CGSize(width: 200, height: 300)
     let standardItemSize = layout.itemSize.width * layout.standardItemScale
     layout.estimatedItemSize = CGSize(width: standardItemSize, height: standardItemSize)
     layout.minimumLineSpacing = -(layout.itemSize.width * 0.5)
