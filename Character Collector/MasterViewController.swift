@@ -28,6 +28,8 @@ import UIKit
 class MasterViewController: UICollectionViewController {
   
   let charactersData = Characters.loadCharacters()
+    
+    var currentCard: Int = 0
       
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -87,12 +89,25 @@ extension MasterViewController {
 // MARK: UICollectionViewDelegate
 extension MasterViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let character = charactersData[indexPath.item]
-    performSegue(withIdentifier: "MasterToDetail", sender: character)
+    if indexPath.item == currentCard {
+        let character = charactersData[indexPath.item]
+        performSegue(withIdentifier: "MasterToDetail", sender: character)
+    }
   }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
+
+extension MasterViewController {
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let layout = self.collectionView!.collectionViewLayout as! CharacterFlowLayout
+        
+        let cardSize = layout.itemSize.height + layout.minimumLineSpacing
+        let offset = scrollView.contentOffset.y
+        
+        currentCard = Int(floor((offset - cardSize / 2) / cardSize) + 1)
+    }
+}
 
 
 
